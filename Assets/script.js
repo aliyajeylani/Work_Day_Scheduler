@@ -46,9 +46,6 @@ $(function (runCode) {
 
     // get value localstorage
     // add those values to text area
-    //var task = localStorage.getItem('hour-9')
-    //$("#hour-9").children("textarea").val(task);
-
 
 
     $(".time-block").each(function (index) {
@@ -56,6 +53,21 @@ $(function (runCode) {
       var task = localStorage.getItem(id)
       $(this).children("textarea").val(task);
     });
+
+    var globalTime = dayjs().hour()
+    alert(globalTime);
+
+    var twelveHourTime = dayjs(globalTime).format('H')
+    alert(twelveHourTime);
+
+    // var centralTimeZone = dayjs(twelveHourTime).tz("Central")
+    // alert(centralTimeZone);
+
+    // // if (currentHour = ) {
+
+
+    // }
+
 
 
 
