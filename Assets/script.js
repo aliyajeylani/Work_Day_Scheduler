@@ -34,7 +34,7 @@ $(function (runCode) {
 
 
       var time = $(this).parent().attr('id');
-      //alert(time);
+      // alert(time);
 
       var taskDescription = $(this).siblings('textarea').val()
       //alert(taskDescription);
@@ -54,23 +54,30 @@ $(function (runCode) {
       $(this).children("textarea").val(task);
     });
 
-    var globalTime = dayjs().hour()
-    alert(globalTime);
+    var currentHour = dayjs().hour()
+    //alert(currentHour);
 
-    var twelveHourTime = dayjs(globalTime).format('H')
-    alert(twelveHourTime);
+    $('.time-block').each(function (index) {
+      var blockHour = parseInt(
+        $(this)
+          .attr('id')
+          .split('-')[1]
+      );
 
-    // var centralTimeZone = dayjs(twelveHourTime).tz("Central")
-    // alert(centralTimeZone);
+      console.log(blockHour);
 
-    // // if (currentHour = ) {
+      if (blockHour < currentHour) {
+
+        $(this).addClass('past');
+      } else if (blockHour === currentHour) {
+        $(this).addClass('present');
+      } else if (blockHour > currentHour) {
+        $(this).addClass('future');
+      }
 
 
-    // }
+    })
 
-
-
-
-  })
+  });
 
 });
